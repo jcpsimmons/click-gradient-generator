@@ -9,13 +9,14 @@ class App extends Component {
   constructor(props) {
    super(props);
    this.state = {
-     bgColor: ""
+     bgImg: 'linear-gradient(30deg, red, yellow)'
    }
  }
 
  clickDiv = (e) => {
+   let randomDegrees = Math.random() * 360;
     this.setState({
-      bgColor: randomColor()
+      bgImg: 'linear-gradient(' + randomDegrees + 'deg' + ', ' + randomColor() + ', ' + randomColor() + ')'
     })
   }
 
@@ -23,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="Full-div"
-        style={{backgroundColor: this.state.bgColor}}
+        style={{backgroundImage: this.state.bgImg}}
              onClick={this.clickDiv}>red</div>
     );
   }
